@@ -132,9 +132,6 @@ def rondas(numero):
         if(seleccionJugador1==seleccionJugador2):
             print("Empate")
             print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
-            
-            if i+1 == numero:
-                return "empate"
 
         else:
             resultado = dicOpciones[seleccionJugador1][seleccionJugador2]
@@ -160,9 +157,9 @@ def rondas(numero):
 
                 print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
                 
-            if winCondition==contadorJugador1 | (esUltimaRonda and contadorJugador1>contadorJugador2):
+            if winCondition==contadorJugador1 or (esUltimaRonda and contadorJugador1>contadorJugador2):
                 return "jugador1"
-            elif winCondition==contadorJugador2 | (esUltimaRonda and contadorJugador1<contadorJugador2):
+            elif winCondition==contadorJugador2 or (esUltimaRonda and contadorJugador1<contadorJugador2):
                 return "jugador2"
             elif i+1 == numero:
                 return "empate"
