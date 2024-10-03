@@ -119,18 +119,18 @@ def rondas(numero):
         print(f"Ronda {i+1} de {numero}")
         seleccionJugador1 = opcionesInput(name1)
         seleccionJugador2=""
+        esUltimaRonda= i+1 == numero
 
         if players == 2:
             print("\n \n \n \n \n \n \n \n")
             seleccionJugador2 = opcionesInput(name2)
         else:
-           # seleccionJugador2= random.choice(opciones)
-            seleccionJugador2="papel"
+            seleccionJugador2= random.choice(opciones)
 
             print("la maquina selecciono ",seleccionJugador2)
         
         if(seleccionJugador1==seleccionJugador2):
-            print("Empate, se repite la ronda")
+            print("Empate")
             print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
             
             if i+1 == numero:
@@ -160,10 +160,12 @@ def rondas(numero):
 
                 print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
                 
-            if winCondition==contadorJugador1:
+            if winCondition==contadorJugador1 | (esUltimaRonda and contadorJugador1>contadorJugador2):
                 return "jugador1"
-            if winCondition==contadorJugador2:
+            elif winCondition==contadorJugador2 | (esUltimaRonda and contadorJugador1<contadorJugador2):
                 return "jugador2"
+            elif i+1 == numero:
+                return "empate"
             
 def rondasInput():
     patron=r"^[135]$"
