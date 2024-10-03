@@ -99,7 +99,7 @@ def opcionesInput(name):
 def yesNoInput(text):
     patron= r"^(yes|no)$"
     try:
-        varInput=(f"Deseas {text}? \n yes   no \n = ")
+        varInput=input(f"Deseas {text}? \n yes   no \n = ")
         checkInput=re.match(patron,varInput)
 
         if checkInput:
@@ -131,7 +131,7 @@ def rondas(numero):
         if(seleccionJugador1==seleccionJugador2):
             print("Empate, se repite la ronda")
             print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
-            i=i-1
+            continue
 
         else:
             resultado = dicOpciones[seleccionJugador1][seleccionJugador2]
