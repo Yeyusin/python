@@ -124,20 +124,23 @@ def rondas(numero):
             print("\n \n \n \n \n \n \n \n")
             seleccionJugador2 = opcionesInput(name2)
         else:
-            seleccionJugador2= random.choice(opciones)
+           # seleccionJugador2= random.choice(opciones)
+            seleccionJugador2="papel"
 
             print("la maquina selecciono ",seleccionJugador2)
         
         if(seleccionJugador1==seleccionJugador2):
             print("Empate, se repite la ronda")
             print(f"{name1} V:{contadorJugador1}    {name2} V:{contadorJugador2}")
-            continue
+            
+            if i+1 == numero:
+                return "empate"
 
         else:
             resultado = dicOpciones[seleccionJugador1][seleccionJugador2]
             patronWin=r"has ganado"
 
-            if re.match(patronWin, resultado):
+            if re.search(patronWin, resultado):
                 if players==2:
                     print(f"{name1} gana")
                 else:
@@ -187,17 +190,21 @@ def play():
         wStreak=0
         resultado=rondas(numeroRondas)
 
-        if "jugador1" in resultado:
+        if "jugador1" == resultado:
             print("Has ganado la partida")
             
             wStreak+=1
         
             print("Llevas esta racha de Victorias ",wStreak)
+
+        elif resultado == "empate":
+            print("Has empatado la partida")
+
         else:
             print("Has perdido la partida")
 
             wStreak=0
-        
+
         continuar= yesNoInput("continuar")
 
         if continuar=="no":
@@ -208,6 +215,7 @@ def play():
         
             if modo=="yes":
                 numeroRondas=rondasInput()
+
 play()
 
 print("Juego finalizado, gracias por jugar")
