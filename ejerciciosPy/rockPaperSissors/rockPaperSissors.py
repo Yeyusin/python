@@ -54,8 +54,8 @@ dicOpciones={
     "papel":{
         "piedra":"Papel envuelve piedra, has ganado",
         "tijera":"Tijera corta papel, has perdido",
-        "lagarto":"Papel desautoriza Spock, has ganado",
-        "spock":"Lagarto devora papel, has perdido"
+        "lagarto":"Lagarto devora papel, has perdido",
+        "spock":"Papel desautoriza Spock, has ganado"
     },
     "tijera":{
         "piedra":"Piedra aplasta a tijera, has perdido",
@@ -65,7 +65,7 @@ dicOpciones={
     },
     "lagarto":{
         "piedra":"Piedra aplasta lagarto, has perdido",
-        "papel":"Lagarto devora papel, has perdido",
+        "papel":"Lagarto devora papel, has ganado",
         "tijera":"Tijera decapita lagarto, has perdido",
         "spock":"Lagarto envenena Spock, has ganado"
     },
